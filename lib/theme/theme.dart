@@ -13,6 +13,13 @@ class ThemeConstants {
       bodyLarge: TextStyle(
         fontSize: 30,
       ),
+      bodyMedium: TextStyle(
+        fontSize: 20,
+        color: Colors.black,
+      ),
+      bodySmall: TextStyle(
+        color: Colors.black,
+      ),
       titleLarge: TextStyle(
         color: Colors.black,
         fontSize: 60,
@@ -35,6 +42,13 @@ class ThemeConstants {
     textTheme: const TextTheme(
       bodyLarge: TextStyle(
         fontSize: 30,
+        color: Colors.white,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 20,
+        color: Colors.white,
+      ),
+      bodySmall: TextStyle(
         color: Colors.white,
       ),
       titleLarge: TextStyle(
