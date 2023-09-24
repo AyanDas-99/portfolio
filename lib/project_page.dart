@@ -4,8 +4,8 @@ import 'package:portfolio/components/icon_and_link.dart';
 import 'package:portfolio/file/project_model.dart';
 import 'package:portfolio/responsive/responsive.dart';
 import 'package:portfolio/theme/theme_provider.dart';
-import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:provider/provider.dart' show WatchContext;
+import 'package:url_launcher/url_launcher.dart' show launchUrl;
 
 class ProjectPage extends StatelessWidget {
   final ProjectModel project;

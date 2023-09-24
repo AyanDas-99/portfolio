@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/text/colored_ayan_das.dart';
 import 'package:portfolio/theme/theme_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart' show ReadContext;
 
-PreferredSizeWidget MyAppBar(
+PreferredSizeWidget myAppBar(
     BuildContext context, VoidCallback scrollToBottom) {
   return AppBar(
     backgroundColor: Colors.transparent,
@@ -17,7 +17,7 @@ PreferredSizeWidget MyAppBar(
           onPressed: () {
             context.read<ThemeModeProvider>().toggle();
           },
-          icon: Icon(Icons.light)),
+          icon: const Icon(Icons.light)),
     ],
   );
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/components/animated_hover.dart';
 import 'package:portfolio/components/icon_and_link.dart';
 import 'package:portfolio/theme/theme_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart' show WatchContext;
 
 class SocialsRow extends StatelessWidget {
   const SocialsRow({super.key});

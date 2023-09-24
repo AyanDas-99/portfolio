@@ -7,14 +7,14 @@ import 'package:portfolio/components/sections/skills_section.dart';
 import 'package:portfolio/components/socials_row.dart';
 import 'package:portfolio/components/sections/work_section.dart';
 import 'package:portfolio/responsive/responsive.dart';
-import 'package:rive/rive.dart';
+import 'package:rive/rive.dart' show RiveAnimation;
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final _controller = ScrollController();
+    final controller = ScrollController();
     return Container(
       color: Theme.of(context).scaffoldBackgroundColor,
       child: Stack(
@@ -38,13 +38,13 @@ class HomePage extends StatelessWidget {
             // color: Theme.of(context).scaffoldBackgroundColor,
             child: Scaffold(
               backgroundColor: Colors.transparent,
-              appBar: MyAppBar(context, () {
-                _controller.animateTo(_controller.position.maxScrollExtent,
+              appBar: myAppBar(context, () {
+                controller.animateTo(controller.position.maxScrollExtent,
                     duration: const Duration(milliseconds: 500),
                     curve: Curves.decelerate);
               }),
               body: SingleChildScrollView(
-                  controller: _controller,
+                  controller: controller,
                   child: Stack(
                     children: [
                       Column(

@@ -4,7 +4,7 @@ import 'package:portfolio/components/icon_and_name.dart';
 import 'package:portfolio/components/text/heading.dart';
 import 'package:portfolio/responsive/responsive.dart';
 import 'package:portfolio/theme/theme_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart' show WatchContext;
 
 class SkillsSection extends StatelessWidget {
   const SkillsSection({super.key});

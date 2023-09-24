@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'dart:ui' show ImageFilter;
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/animated_hover.dart';
 import 'package:portfolio/file/project_model.dart';
@@ -73,7 +72,7 @@ class _ProjectCardState extends State<ProjectCard>
                             width: 400,
                             height: 400,
                             padding: const EdgeInsets.all(10),
-                            color: Color.fromARGB(255, 18, 41, 53)
+                            color: const Color.fromARGB(255, 18, 41, 53)
                                 .withOpacity(0.5),
                             child: Center(
                               child: Column(
@@ -81,7 +80,7 @@ class _ProjectCardState extends State<ProjectCard>
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Transform.translate(
-                                    offset: Offset(0, 0),
+                                    offset: const Offset(0, 0),
                                     child: Text(
                                       widget.project.name,
                                       style: Theme.of(context)

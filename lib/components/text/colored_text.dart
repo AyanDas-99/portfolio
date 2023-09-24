@@ -19,6 +19,7 @@ class ColoredText extends StatefulWidget {
 }
 
 class _ColoredTextState extends State<ColoredText> {
+  @override
   Widget build(BuildContext context) {
     List<WidgetSpan> normalSpan = (widget.normal != null)
         ? widget.normal!
