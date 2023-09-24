@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 PreferredSizeWidget MyAppBar(
     BuildContext context, VoidCallback scrollToBottom) {
   return AppBar(
+    backgroundColor: Colors.transparent,
     surfaceTintColor: Colors.transparent,
     leadingWidth: 100,
     leading: const ColoredAyanDas(),

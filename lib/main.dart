@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/file/projects.dart';
+import 'package:portfolio/project_page.dart';
 import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/home_page.dart';
 import 'package:portfolio/theme/theme_provider.dart';

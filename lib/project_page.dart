@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/animated_hover.dart';
 import 'package:portfolio/components/icon_and_link.dart';
-import 'package:portfolio/components/text/heading.dart';
 import 'package:portfolio/file/project_model.dart';
+import 'package:portfolio/responsive/responsive.dart';
 import 'package:portfolio/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -53,43 +53,83 @@ class ProjectPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 30),
+          padding: Responsive.isTab(context)
+              ? const EdgeInsets.symmetric(horizontal: 100, vertical: 30)
+              : const EdgeInsets.all(20),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: Responsive.isTab(context)
+                ? CrossAxisAlignment.start
+                : CrossAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.asset(
-                      project.image,
-                      width: MediaQuery.of(context).size.width / 3,
+              if (!Responsive.isTab(context))
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        project.image,
+                        width: 500,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 200,
-                    child: Text(
-                      project.desc ?? project.intro,
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          fontFamily: 'FairplayDisplay',
-                          fontWeight: FontWeight.bold,
-                          height: 2),
+                    const SizedBox(
+                      height: 50,
                     ),
-                  ),
-                ],
-              ),
+                    SizedBox(
+                      width: 200,
+                      child: Text(
+                        project.desc ?? project.intro,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            fontFamily: 'FairplayDisplay',
+                            fontWeight: FontWeight.bold,
+                            height: 2),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                  ],
+                ),
+              if (Responsive.isTab(context))
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        project.image,
+                        width: 450,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 200,
+                      child: Text(
+                        project.desc ?? project.intro,
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            fontFamily: 'FairplayDisplay',
+                            fontWeight: FontWeight.bold,
+                            height: 2),
+                      ),
+                    ),
+                  ],
+                ),
               const SizedBox(
                 height: 50,
               ),
               if (project.techUsed != null)
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    const Spacer(),
+                    // const Spacer(),
                     Container(
-                      padding: const EdgeInsets.all(100),
-                      width: MediaQuery.of(context).size.width / 2,
-                      height: MediaQuery.of(context).size.width / 4,
+                      padding: Responsive.isTab(context)
+                          ? const EdgeInsets.all(100)
+                          : const EdgeInsets.symmetric(
+                              horizontal: 50, vertical: 100),
+                      width: Responsive.isTab(context)
+                          ? MediaQuery.of(context).size.width / 2
+                          : MediaQuery.of(context).size.width / 1.2,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         gradient: LinearGradient(
@@ -131,12 +171,20 @@ class ProjectPage extends StatelessWidget {
                 ),
               if (project.learnings != null)
                 Transform.translate(
-                  offset: const Offset(0, -50),
+                  offset: (Responsive.isTab(context))
+                      ? const Offset(0, -50)
+                      : const Offset(0, 10),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        padding: const EdgeInsets.all(100),
-                        width: MediaQuery.of(context).size.width / 2,
+                        padding: Responsive.isTab(context)
+                            ? const EdgeInsets.all(100)
+                            : const EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 100),
+                        width: Responsive.isTab(context)
+                            ? MediaQuery.of(context).size.width / 2
+                            : MediaQuery.of(context).size.width / 1.2,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           gradient: LinearGradient(

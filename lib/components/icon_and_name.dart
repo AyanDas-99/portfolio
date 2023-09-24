@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/responsive/responsive.dart';
 
 class IconAndName extends StatelessWidget {
   final String path;
@@ -7,14 +8,15 @@ class IconAndName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double size = Responsive.isTab(context) ? 80 : 50;
     return Padding(
       padding: const EdgeInsets.all(25.0),
       child: Column(
         children: [
           Image.asset(
             path,
-            height: 80,
-            width: 80,
+            height: size,
+            width: size,
           ),
           const SizedBox(
             height: 10,

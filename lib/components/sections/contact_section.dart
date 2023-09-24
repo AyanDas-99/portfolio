@@ -23,7 +23,7 @@ class ContactSection extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        Row(
+        Wrap(
           children: [
             Text(
               'Send an email at ',
