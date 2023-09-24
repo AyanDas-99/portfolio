@@ -27,11 +27,14 @@ Implemented MVVM architecture and followed clean code principles.
             'I learned how to implement some UI features like Frost Effect, etc.'),
 
     ProjectModel(
-      name: 'Flutter Animations',
-      intro: 'Representation of various types of animations in Flutter',
-      image: 'assets/projects/animation.png',
-      github: 'https://github.com/AyanDas-99/Flutter-animations',
-    ),
+        name: 'Flutter Animations',
+        intro: 'Representation of various types of animations in Flutter',
+        image: 'assets/projects/animation.png',
+        github: 'https://github.com/AyanDas-99/Flutter-animations',
+        learnings:
+            '''I learned basic to advanced animations in flutter from this project.
+      Learned how to implement implicit animations, tween animations, animation controller, chaining ,etc.
+      '''),
   ];
 
   const Projects._();
