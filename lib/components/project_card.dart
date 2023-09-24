@@ -2,21 +2,16 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/animated_hover.dart';
+import 'package:portfolio/file/project_model.dart';
 import 'package:portfolio/project_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProjectCard extends StatefulWidget {
-  final String name;
-  final String github;
-  final String image;
-  final String intro;
+  final ProjectModel project;
 
   const ProjectCard({
     super.key,
-    required this.name,
-    required this.github,
-    required this.image,
-    required this.intro,
+    required this.project,
   });
 
   @override
@@ -61,7 +56,7 @@ class _ProjectCardState extends State<ProjectCard>
           child: Container(
             decoration: BoxDecoration(
               color: Colors.pinkAccent,
-              image: DecorationImage(image: AssetImage(widget.image)),
+              image: DecorationImage(image: AssetImage(widget.project.image)),
             ),
             width: 400,
             height: 400,
@@ -87,7 +82,7 @@ class _ProjectCardState extends State<ProjectCard>
                                 Transform.translate(
                                   offset: Offset(0, -_animation.value / 3.3),
                                   child: Text(
-                                    widget.name,
+                                    widget.project.name,
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyLarge!
@@ -98,7 +93,7 @@ class _ProjectCardState extends State<ProjectCard>
                                   height: 20,
                                 ),
                                 Text(
-                                  widget.intro,
+                                  widget.project.intro,
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(color: Colors.white),
                                 ),
@@ -108,39 +103,47 @@ class _ProjectCardState extends State<ProjectCard>
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    AnimatedHover(
-                                        scaleFactor: 1.5,
-                                        milliseconds: 100,
-                                        child: InkWell(
-                                          onTap: () {
-                                            launchUrl(Uri.parse(widget.github));
-                                          },
-                                          child: Image.asset(
-                                            'assets/icons/github-mark-white.png',
-                                            width: 40,
-                                          ),
-                                        )),
-                                    const SizedBox(
-                                      width: 50,
+                                    if (widget.project.github != null)
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 10.0),
+                                        child: AnimatedHover(
+                                            scaleFactor: 1.5,
+                                            milliseconds: 100,
+                                            child: InkWell(
+                                              onTap: () {
+                                                launchUrl(Uri.parse(
+                                                    widget.project.github!));
+                                              },
+                                              child: Image.asset(
+                                                'assets/icons/github-mark-white.png',
+                                                width: 40,
+                                              ),
+                                            )),
+                                      ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10.0),
+                                      child: AnimatedHover(
+                                          scaleFactor: 1.5,
+                                          milliseconds: 100,
+                                          child: InkWell(
+                                            onTap: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        ProjectPage(
+                                                            widget.project),
+                                                  ));
+                                            },
+                                            child: const Icon(
+                                              Icons.file_open,
+                                              color: Colors.white,
+                                              size: 40,
+                                            ),
+                                          )),
                                     ),
-                                    AnimatedHover(
-                                        scaleFactor: 1.5,
-                                        milliseconds: 100,
-                                        child: InkWell(
-                                          onTap: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      ProjectPage(),
-                                                ));
-                                          },
-                                          child: const Icon(
-                                            Icons.file_open,
-                                            color: Colors.white,
-                                            size: 40,
-                                          ),
-                                        )),
                                   ],
                                 )
                               ],

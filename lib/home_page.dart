@@ -27,16 +27,16 @@ class HomePage extends StatelessWidget {
             controller: _controller,
             child: Stack(
               children: [
-                // Opacity(
-                //   opacity: 0.5,
-                //   child: SizedBox(
-                //     width: MediaQuery.of(context).size.width,
-                //     height: 1000,
-                //     child: const RiveAnimation.network(
-                //       'https://public.rive.app/community/runtime-files/6112-11891-glowballs.riv',
-                //     ),
-                //   ),
-                // ),
+                Opacity(
+                  opacity: 0.5,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 1000,
+                    child: const RiveAnimation.network(
+                      'https://public.rive.app/community/runtime-files/6112-11891-glowballs.riv',
+                    ),
+                  ),
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

@@ -17,10 +17,7 @@ class WorkSection extends StatelessWidget {
           child: Wrap(
             children: Projects.projects
                 .map((e) => ProjectCard(
-                      name: e.name,
-                      github: e.github,
-                      image: e.image,
-                      intro: e.intro,
+                      project: e,
                     ))
                 .toList(),
           ),

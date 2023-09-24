@@ -29,39 +29,28 @@ class ThemeConstants {
         color: Colors.black,
         fontWeight: FontWeight.bold,
       ),
+      displayLarge: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.w100,
+        color: Colors.black,
+      ),
+      displayMedium: TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.normal,
+        color: Colors.black,
+      ),
     ),
   );
 
   static ThemeData darkTheme = ThemeData.dark(useMaterial3: true).copyWith(
-    primaryColor: lightBlue,
-    elevatedButtonTheme: const ElevatedButtonThemeData(
-        style: ButtonStyle(
-      backgroundColor: MaterialStatePropertyAll(Colors.black),
-      foregroundColor: MaterialStatePropertyAll(Colors.white),
-    )),
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(
-        fontSize: 30,
-        color: Colors.white,
-      ),
-      bodyMedium: TextStyle(
-        fontSize: 20,
-        color: Colors.white,
-      ),
-      bodySmall: TextStyle(
-        color: Colors.white,
-      ),
-      titleLarge: TextStyle(
-        color: Colors.white,
-        fontSize: 60,
-        fontWeight: FontWeight.w900,
-      ),
-      titleMedium: TextStyle(
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-  );
+      primaryColor: lightBlue,
+      elevatedButtonTheme: const ElevatedButtonThemeData(
+          style: ButtonStyle(
+        backgroundColor: MaterialStatePropertyAll(Colors.black),
+        foregroundColor: MaterialStatePropertyAll(Colors.white),
+      )),
+      textTheme: lightTheme.textTheme
+          .apply(bodyColor: Colors.white, displayColor: Colors.white));
 
   static Color lightBlue = Colors.lightBlue;
   const ThemeConstants._();
