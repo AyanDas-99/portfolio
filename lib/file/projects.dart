@@ -2,6 +2,25 @@ import 'package:portfolio/file/project_model.dart';
 
 class Projects {
   static List<ProjectModel> projects = [
+    // Dibook
+    ProjectModel(
+        name: 'Dibook',
+        intro: 'The Book reselling market app',
+        image: 'assets/projects/dibook.png',
+        desc:
+            "Dibook is an online reselling platform for books, allowing users to effortlessly buy and sell books. Whether you're looking for a new read or want to declutter your bookshelf, Dibook has got you covered.",
+        github: 'https://github.com/AyanDas-99/DiBook',
+        techUsed:
+            '''The mobile app is build using Flutter, with Riverpod state management.
+      Backed with node.js server powered by express.js.
+      Uses MongoDB to store all the book data (mongoose js),
+      Initial design created with figma.
+''',
+        learnings:
+            '''I mostly learned how to create server using node.js and express.js, and using mongoDB to store and retrieve data.
+  Used MVVM architecture to keep the code organised and maintainable.
+  '''),
+
     // verve
     ProjectModel(
       name: 'Verve',
